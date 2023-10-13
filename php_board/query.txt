@@ -1,0 +1,28 @@
+CREATE TABLE `notice_data` (
+	`list_num` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`list_division` VARCHAR(10) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_user` VARCHAR(6) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_classification` VARCHAR(6) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_user_type` VARCHAR(5) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_title` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_content` VARCHAR(500) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_path` VARCHAR(500) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`list_click` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+	`list_wirte_date` DATE NOT NULL,
+	PRIMARY KEY (`list_num`) USING BTREE
+)
+COMMENT='게시판 게시글 저장'
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=25
+;
+//////
+
+
+INSERT INTO notice_data (list_division, list_user, list_classification, list_user_type, list_title, list_content, list_path, list_click, list_wirte_date) 
+VALUES 
+('division16', 'user1', 'class1', 'type1', 'title1', 'content1', 'path1', 0, '2023-10-13'),
+('division17', 'user2', 'class2', 'type2', 'title2', 'content2', 'path2', 0, '2023-10-14'),
+('division18', 'user3', 'class3', 'type3', 'title3', 'content3', 'path3', 0, '2023-10-15'),('division19', 'user1', 'class1', 'type1', 'title1', 'content1', 'path1', 0, '2023-10-13'),
+('division20', 'user2', 'class2', 'type2', 'title2', 'content2', 'path2', 0, '2023-10-14'),
+('division21', 'user3', 'class3', 'type3', 'title3', 'content3', 'path3', 0, '2023-10-15');

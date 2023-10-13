@@ -1,0 +1,65 @@
+
+h1 {
+    border-bottom: 1px solid black; /* 하단 경계 추가 */
+    padding-bottom: 10px; /* 경계 아래에 여백 추가 */
+    font-size: 50px;
+}
+table {
+    margin: 0 auto; /* 테이블을 페이지의 중앙에 배치 */
+    width: 80%; /* 테이블의 너비를 80%로 설정 */
+}
+table {
+    margin: 0 auto;
+    width: 60%;
+    border-collapse: collapse; /* 셀 간 간격 제거 */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px; /* 셀 안쪽 여백 추가 */
+}
+th {
+    background-color: skyblue;
+    border: 1px solid black;
+    height: 50px;
+    width: 150px;
+}
+
+td{
+    border: 1px solid black;
+    background-color: white;
+    height: 50px;
+    width: 700px;
+}
+
+
+.input1{
+    width: 280px; 
+    height: 35px;
+}
+.input2{
+    width:100%;
+    height: 35px;
+}
+.input3 {
+    width: 100%;
+    height:500px;
+}
+.select1{
+    height: 35px;
+    width: 200px;
+}
+.submit-buttons {
+    text-align: right;
+    margin-top: 20px;
+    width: 60%; /* 테이블의 너비와 일치시킵니다. */
+    margin: 0 auto; /* 중앙 정렬을 위해 추가합니다. */
+}
+.submit-buttons input[type="submit"],
+.submit-buttons input[type="button"] {
+    width: 100px; /* 버튼의 너비 설정 */
+    height: 40px; /* 버튼의 높이 설정 */
+    font-size: 16px; /* 폰트 사이즈 설정 */
+    cursor: pointer; /* 마우스 커서를 손가락 모양으로 설정 */
+} 
+/* 번호 열 */

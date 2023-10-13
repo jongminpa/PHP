@@ -1,0 +1,155 @@
+h1 {
+    border-bottom: 1px solid black; 
+    padding-bottom: 10px; 
+    font-size: 50px;
+}
+table {
+    margin: 0 auto;
+    width: 60%;
+    border-collapse: collapse; 
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    height: 20px;
+}
+th.col1 {
+    width: 100px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col1 {
+    width: 100px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 구분 열 */
+th.col2 {
+    width: 100px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col2 {
+    width: 100px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 제목 열 */
+th.col3 {
+    width: 500px;
+    background-color: skyblue;
+    padding-left: 10px;
+}
+
+td.col3 {
+    width: 500px;
+    background-color: white;
+    padding-left: 10px;
+}
+
+/* 첨부 열 */
+th.col4 {
+    width: 100px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col4 {
+    width: 100px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 작성일 열 */
+th.col5 {
+    width: 150px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col5 {
+    width: 150px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 작성자 열 */
+th.col6 {
+    width: 100px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col6 {
+    width: 100px;
+    background-color: white;
+    text-align: center;
+}
+
+/* 조회수 열 */
+th.col7 {
+    width: 70px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+td.col7 {
+    width: 70px;
+    background-color: white;
+    text-align: center;
+}
+.search {
+    border: 1px solid #000; 
+    background-color: #ccc; 
+    padding: 20px; 
+    margin: 0 auto; 
+    margin-bottom: 30px;
+    width: 58%;
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px; 
+}
+.pagination ul {
+    list-style-type: none; 
+    padding: 0; 
+    display: inline-block; 
+}
+.pagination ul li {
+    display: inline; 
+}
+.pagination ul li a {
+    display: inline-block; 
+    padding: 5px 15px; 
+    margin: 0 3px;
+    border: 1px solid #000; 
+    text-decoration: none; 
+    color: #000; 
+}
+.pagination ul li a:hover {
+    background-color: skyblue; 
+}
+
+.add-post-button {
+    text-align:right; 
+    margin-top: 20px; 
+    width: 80%;
+}
+.add-post-button a {
+    display: inline-block; 
+    padding: 10px 20px; 
+    border: 1px solid #000; 
+    background-color: #ccc; 
+    text-decoration: none; 
+    color: #000; 
+    border-radius: 5px; 
+    font-weight: bold; 
+}
+.add-post-button a:hover {
+    background-color: skyblue; /* Changing background on hover */
+}
+
