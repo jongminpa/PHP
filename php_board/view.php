@@ -1,15 +1,16 @@
 <?php
-require_once ("data.php");
+require_once ("db_lib.php");
+require_once ("board_lib.php");
 
-$list_num = $_GET["list_num"] ?? "";  // PHP 7 이상에서 지원하는 null coalescing operator를 사용하여 초기값 설정
+$list_num = isset($_GET['list_num']) ? $_GET['list_num'] : '';
 
 $pdo = db_connects();
 
-$sql = "SELECT * FROM notice_data WHERE list_num = :list_num";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':list_num', $list_num, PDO::PARAM_INT);
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$sql_2="UPDATE notice_data SET list_click = list_click + 1 WHERE list_num = '$list_num'";
+db_update_delete($sql_2);
+
+$sql = "SELECT * FROM notice_data WHERE list_num = $list_num";
+$result = db_select($sql);
 
 $division = $name = $classification = $user_type = $title = $content = $path = "";
 
@@ -22,13 +23,13 @@ if ($result && count($result) > 0) {
     $content = $result[0]["list_content"];
     $path = $result[0]["list_path"];
 } else {
-    echo "데이터를 찾을 수 없습니다.";
+    alert ("데이터를 찾을 수 없습니다.");
     exit;
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,16 +61,16 @@ if ($result && count($result) > 0) {
         </tr>
         <tr>
             <th class = "content1">내용</th>
-            <td><?= nl2br(htmlspecialchars($content)) ?></td> <!-- nl2br() 함수를 사용하여 줄바꿈 처리 -->
+            <td><?= nl2br(htmlspecialchars($content)) ?></td> 
         </tr>
         <tr>
             <th>첨부파일</th>
-            <td><a href="<?= htmlspecialchars($path) ?>" target="_blank">다운로드</a></td>
+            <td><a href="<?= $path?>" target="_blank">다운로드</a></td>
         </tr>
     </table>
     <div class="button-group">
-    <button onclick="location.href='edit.php'">수정</button>
-    <button onclick="location.href='delete.php'">삭제</button>
+    <button onclick="location.href='data_input.php?list_num=<?php echo $list_num; ?>&viewmode=edit'">수정</button>
+    <button onclick="location.href='delete.php?list_num=<?php echo $list_num;?>'">삭제</button>
     <button onclick="location.href='list.php'">목록보기</button>
 </div>
 </body>

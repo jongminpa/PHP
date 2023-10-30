@@ -18,11 +18,3 @@ AUTO_INCREMENT=25
 ;
 //////
 
-
-INSERT INTO notice_data (list_division, list_user, list_classification, list_user_type, list_title, list_content, list_path, list_click, list_wirte_date) 
-VALUES 
-('division16', 'user1', 'class1', 'type1', 'title1', 'content1', 'path1', 0, '2023-10-13'),
-('division17', 'user2', 'class2', 'type2', 'title2', 'content2', 'path2', 0, '2023-10-14'),
-('division18', 'user3', 'class3', 'type3', 'title3', 'content3', 'path3', 0, '2023-10-15'),('division19', 'user1', 'class1', 'type1', 'title1', 'content1', 'path1', 0, '2023-10-13'),
-('division20', 'user2', 'class2', 'type2', 'title2', 'content2', 'path2', 0, '2023-10-14'),
-('division21', 'user3', 'class3', 'type3', 'title3', 'content3', 'path3', 0, '2023-10-15');
