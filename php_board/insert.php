@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         {
             $path = $filePath; // 파일 경로를 변수에 저장
         } else {
-            echo "파일 업로드에 실패했습니다.";
+            alert ("파일 업로드에 실패했습니다.");
         }
     
     }

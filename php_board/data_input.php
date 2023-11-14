@@ -2,7 +2,7 @@
 require_once("db_lib.php");
 
 $viewmode = isset($_GET['viewmode']) ? $_GET['viewmode'] :'';
-$list_num = isset($_GET['list_num']) ? $_GET['list_num'] : ''; // 이 코드를 추가하여 list_num 값을 확인
+$list_num = isset($_GET['list_num']) ? $_GET['list_num'] : '';
 if($viewmode == "edit" && $list_num){
     $sql = "SELECT * FROM notice_data where list_num = $list_num";
 
@@ -55,7 +55,20 @@ if($viewmode == "edit" && $list_num){
     
             var filename = fileInput.value.split('\\').pop(); 
             filenameDisplay.value = filename ? filename : '선택된 파일 없음'; 
-}        
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var fileInput = document.querySelector('input[name="path"]');
+            var filenameField = document.getElementById('filename');
+
+            fileInput.addEventListener('change', function () {
+            var files = fileInput.files;
+            if (files.length > 0) {
+                filenameField.value = files[0].name;
+            } else {
+                filenameField.value = "선택된 파일 없음";
+            }
+            });
+        });        
     </script>
 </head>
 <body>

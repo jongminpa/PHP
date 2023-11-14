@@ -53,7 +53,12 @@ $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
                 $posts_per_page = 10;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $offset = ($page - 1) * $posts_per_page;
-            
+
+                $sql_total_posts = "SELECT COUNT(*) as total_posts FROM notice_data";
+                $stmt_total = $pdo->query($sql_total_posts);
+                $total_posts = $stmt_total->fetch(PDO::FETCH_ASSOC)['total_posts'];
+                $total_pages = ceil($total_posts / $posts_per_page);
+
                 $sql = "SELECT * FROM notice_data WHERE 1=1 ";
                 $params = [];
             
@@ -79,12 +84,26 @@ $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
                 $stmt->execute($params);
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+                if ($page > 1) {
+                    $first_post_num = $total_posts - (($page - 1) * $posts_per_page);
+                } else {
+                    $first_post_num = $total_posts;
+                }
+
                 foreach ($results as $row) {
                     echo "<tr>";
-                    echo "<td class='col1'>" . htmlspecialchars($row['list_num']) . "</td>";
+                    echo "<td class='col1'>" . htmlspecialchars($first_post_num) . "</td>";
                     echo "<td class='col2'>" . htmlspecialchars($row['list_division']) . "</td>";
-                    echo "<td class='col3'><a href='view.php?list_num=" . htmlspecialchars($row['list_num']) . "'>" . htmlspecialchars($row['list_title']) . "</a></td>";
-                    echo "<td class='col4'>" . htmlspecialchars($row['list_path']) . "</td>";
+                    echo "<td class='col3'><a href='view.php?list_num=" . htmlspecialchars($row['list_num']) . "'>"
+                        . htmlspecialchars($row['list_title']) . "</a></td>";
+                    echo "<td class='col4'>";
+                    if (!empty($row['list_path'])) {
+                        echo "<img src='/php_board/file_icon.png'>";
+                    } else {
+                        echo "";
+                    }
+
+                    echo "</td>";
                 
                     if (isset($row['list_wirte_date'])) {
                         echo "<td class='col5'>" . htmlspecialchars($row['list_wirte_date']) . "</td>";
@@ -95,19 +114,16 @@ $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
                     if (isset($row['list_user'])) {
                         echo "<td class='col6'>" . htmlspecialchars($row['list_user']) . "</td>";
                     } else {
-                        echo "<td class='col6'>N/A</td>";
+                        echo "<td class='col6'></td>";
                     }
                 
                     echo "<td class='col7'>" . htmlspecialchars($row['list_click']) . "</td>";
                     echo "</tr>";
+
+
+
+                    $first_post_num--;
                 }
-            
-        
-            
-            $sql_total_posts = "SELECT COUNT(*) as total_posts FROM notice_data";
-            $stmt_total = $pdo->query($sql_total_posts);
-            $total_posts = $stmt_total->fetch(PDO::FETCH_ASSOC)['total_posts'];
-            $total_pages = ceil($total_posts / $posts_per_page);
         ?>
     </tbody>
 </table>

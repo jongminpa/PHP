@@ -38,7 +38,7 @@ if ($result && count($result) > 0) {
 </head>
 <body>
     <h1>조회</h1>
-    <table border="1">
+    <table>
         <tr>
             <th>구분</th>
             <td><?= htmlspecialchars($division) ?></td>
